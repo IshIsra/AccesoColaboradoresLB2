@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceso Colaboradores - Liceo Boston</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f7f7f7;
+    }
+
+    /* Header */
+    .encabezado {
+      background-color: #003865;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo {
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    /* Hero section */
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?fit=crop&w=1400&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      position: relative;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      height: 100%;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    /* Contenido */
+    .contenido {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .boton {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      background-color: #005aa7;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .boton:hover {
+      background-color: #003865;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #003865;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+  <link rel="icon" href="https://www.liceoboston.edu.co/images/logo_boston.png" type="image/png" />
+</head>
+<body>
+  <header class="encabezado">
+    <img src="https://www.liceoboston.edu.co/images/logo_boston.png" alt="Liceo Boston Logo" class="logo" />
+    <h1>Acceso para colaboradores</h1>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="overlay">
+        <h2>Bienvenidos al acceso exclusivo</h2>
+        <p>Portal interno para personal del Liceo Boston</p>
+      </div>
+    </section>
+
+    <section class="contenido">
+      <h3>Accesos rápidos</h3>
+      <div class="botones">
+        <a href="https://drive.google.com" target="_blank" class="boton">Google Drive</a>
+        <a href="https://mail.google.com" target="_blank" class="boton">Correo Institucional</a>
+        <a href="https://sites.google.com/liceoboston.edu.co/liceobostonth" target="_blank" class="boton">Sitio Interno</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Liceo Boston - Talento Humano</p>
+  </footer>
+</body>
+</html>
