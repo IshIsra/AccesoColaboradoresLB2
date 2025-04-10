@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portal Talento Humano - Liceo Boston</title>
+  <link rel="icon" href="https://www.liceoboston.edu.co/favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background-color: #f5f5f5; }
     header {
       background-color: #003865;
@@ -17,6 +19,7 @@
       width: 100%;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     nav {
       display: flex;
@@ -31,6 +34,7 @@
       text-decoration: none;
       position: relative;
       padding: 0.5rem;
+      transition: background-color 0.3s ease;
     }
     .menu a:hover {
       background-color: #00589b;
@@ -55,6 +59,7 @@
       padding: 0.5rem 1rem;
       color: #333;
       text-decoration: none;
+      transition: background-color 0.2s;
     }
     .dropdown-content a:hover {
       background-color: #eee;
@@ -85,6 +90,7 @@
       border-radius: 10px;
       margin-bottom: 2rem;
       text-align: center;
+      animation: fadeIn 1s ease-in;
     }
     section.cards {
       display: grid;
@@ -96,10 +102,19 @@
       border-radius: 10px;
       padding: 1.5rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.3s;
     }
-    .card:hover { transform: translateY(-5px); }
-    .card h3 { color: #003865; margin-bottom: 0.5rem; }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      color: #003865;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      opacity: 0.9;
+    }
 
     footer {
       margin-top: 3rem;
@@ -108,22 +123,33 @@
       padding: 2rem;
       text-align: center;
     }
-    footer a { color: #ccc; text-decoration: none; margin: 0 0.5rem; }
-    footer a:hover { color: white; }
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    footer a:hover {
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
   <header>
-    <nav>
+    <nav role="navigation" aria-label="Menú principal">
       <div class="logo">Talento Humano LB</div>
-      <div class="hamburger" onclick="toggleMenu()">
+      <div class="hamburger" onclick="toggleMenu()" aria-label="Menú móvil">
         <i class="fas fa-bars"></i>
       </div>
       <div class="menu" id="menu">
-        <a href="#">Inicio</a>
+        <a href="#inicio">Inicio</a>
         <div class="dropdown">
-          <a href="#">Bienestar <i class="fas fa-caret-down"></i></a>
-          <div class="dropdown-content">
+          <a href="#" aria-haspopup="true">Bienestar <i class="fas fa-caret-down"></i></a>
+          <div class="dropdown-content" aria-label="Submenú Bienestar">
             <a href="#">Bienestar Físico</a>
             <a href="#">Bienestar Financiero</a>
             <a href="#">Bienestar Emocional</a>
@@ -141,7 +167,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="inicio">
     <section class="hero">
       <h1>Bienvenido al portal de Talento Humano</h1>
       <p>Nos alegra tenerte aquí. Este es tu espacio para acceder a información valiosa sobre tu bienestar, desarrollo profesional y asuntos laborales. Encuentra información sobre nuestros convenios, cursos gratuitos y realiza tus solicitudes de manera rápida y sencilla.</p>
@@ -149,27 +175,27 @@
 
     <section class="cards">
       <div class="card">
-        <h3>Compromiso con el Bienestar</h3>
+        <h3><i class="fas fa-heartbeat"></i> Compromiso con el Bienestar</h3>
         <p>Nuestro equipo trabaja constantemente para garantizar tu bienestar físico y mental, ofreciéndote herramientas y espacios que te ayuden a alcanzar tu máximo potencial.</p>
       </div>
       <div class="card">
-        <h3>Oportunidades de Crecimiento</h3>
+        <h3><i class="fas fa-chart-line"></i> Oportunidades de Crecimiento</h3>
         <p>Creemos en el desarrollo continuo. Por eso, promovemos espacios de aprendizaje y formación que fortalecen tus habilidades y conocimientos.</p>
       </div>
       <div class="card">
-        <h3>Un Ambiente de Trabajo Positivo</h3>
+        <h3><i class="fas fa-handshake"></i> Un Ambiente de Trabajo Positivo</h3>
         <p>Fomentamos la colaboración, el respeto y el trabajo en equipo para que te sientas valorado y motivado cada día.</p>
       </div>
       <div class="card">
-        <h3>Talento Humano LB</h3>
+        <h3><i class="fas fa-users"></i> Talento Humano LB</h3>
         <p>Acompañamos tus procesos y celebramos tus logros. Tu satisfacción y bienestar son nuestra prioridad.</p>
       </div>
       <div class="card">
-        <h3>Lo que logramos juntos</h3>
+        <h3><i class="fas fa-trophy"></i> Lo que logramos juntos</h3>
         <p>Tu dedicación impacta directamente en la educación y bienestar de nuestros estudiantes.</p>
       </div>
       <div class="card">
-        <h3>Trabajamos en equipo</h3>
+        <h3><i class="fas fa-people-carry"></i> Trabajamos en equipo</h3>
         <p>Juntos construimos un entorno de aprendizaje y trabajo cada vez más fuerte.</p>
       </div>
     </section>
@@ -180,7 +206,12 @@
     <p>
       <a href="#">Contacto</a> |
       <a href="#">Términos</a> |
-      <a href="#">Redes Sociales</a>
+      <a href="#">Política de Privacidad</a>
+    </p>
+    <p>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
     </p>
   </footer>
 
@@ -192,4 +223,3 @@
   </script>
 </body>
 </html>
-
