@@ -1,120 +1,195 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portal Talento Humano - Liceo Boston</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-    }
-    body {
-      background-color: #000;
-      color: #fff;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background-color: #f5f5f5; }
     header {
-      background-color: #000;
+      background-color: #003865;
+      color: white;
       padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 2px solid #1e293b;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
     }
     nav {
       display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo { font-size: 1.5rem; font-weight: bold; }
+    .menu { display: flex; gap: 1rem; }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      position: relative;
+      padding: 0.5rem;
+    }
+    .menu a:hover {
+      background-color: #00589b;
+      border-radius: 5px;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      color: #333;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1001;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #333;
+      text-decoration: none;
+    }
+    .dropdown-content a:hover {
+      background-color: #eee;
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+
+    .hamburger { display: none; cursor: pointer; }
+    .hamburger i { font-size: 1.5rem; }
+
+    @media (max-width: 768px) {
+      .menu { 
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #003865;
+      }
+      .menu.show { display: flex; }
+      .dropdown-content { position: static; box-shadow: none; background-color: #004a8d; }
+      .dropdown-content a { color: white; }
+      .hamburger { display: block; }
+    }
+
+    main { padding-top: 6rem; max-width: 1200px; margin: auto; padding: 6rem 1rem 2rem; }
+    section.hero {
+      background: linear-gradient(to right, #00589b, #0073e6);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    section.cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
     }
-    nav a:hover {
-      color: #3b82f6;
-    }
-    main {
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { color: #003865; margin-bottom: 0.5rem; }
+
+    footer {
+      margin-top: 3rem;
+      background-color: #003865;
+      color: white;
       padding: 2rem;
+      text-align: center;
     }
-    h1 {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #3b82f6;
-      margin-bottom: 1rem;
-    }
-    section {
-      margin-bottom: 2rem;
-    }
+    footer a { color: #ccc; text-decoration: none; margin: 0 0.5rem; }
+    footer a:hover { color: white; }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">Liceo Boston - TH</div>
     <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#bienestar">Bienestar</a>
-      <a href="#capacitacion">Capacitación y Formación</a>
-      <a href="#perfil">Perfil de Usuario</a>
-      <a href="#legales">Asuntos Legales</a>
-      <a href="#cultural">Transformación Cultural</a>
-      <a href="#evaluacion">Evaluación de Desempeño</a>
-      <a href="#solicitudes">Solicitudes de Talento Humano</a>
+      <div class="logo">Talento Humano LB</div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="menu" id="menu">
+        <a href="#">Inicio</a>
+        <div class="dropdown">
+          <a href="#">Bienestar <i class="fas fa-caret-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#">Bienestar Físico</a>
+            <a href="#">Bienestar Financiero</a>
+            <a href="#">Bienestar Emocional</a>
+            <a href="#">Bienestar Social</a>
+            <a href="#">Bienestar Institucional</a>
+          </div>
+        </div>
+        <a href="#">Capacitación y Formación</a>
+        <a href="#">Perfil de Usuario</a>
+        <a href="#">Asuntos Legales</a>
+        <a href="#">Transformación Cultural</a>
+        <a href="#">Evaluación de Desempeño</a>
+        <a href="#">Solicitudes de Talento Humano</a>
+      </div>
     </nav>
   </header>
+
   <main>
-    <section id="inicio">
-      <h1>Talento Humano Liceo Boston</h1>
-      <p>[Contenido principal de bienvenida irá aquí]</p>
+    <section class="hero">
+      <h1>Bienvenido al portal de Talento Humano</h1>
+      <p>Nos alegra tenerte aquí. Este es tu espacio para acceder a información valiosa sobre tu bienestar, desarrollo profesional y asuntos laborales. Encuentra información sobre nuestros convenios, cursos gratuitos y realiza tus solicitudes de manera rápida y sencilla.</p>
     </section>
 
-    <section id="bienestar">
-      <h1>Bienestar</h1>
-      <p>[Contenido de Bienestar]</p>
-    </section>
-
-    <section id="capacitacion">
-      <h1>Capacitación y Formación</h1>
-      <p>[Contenido de Capacitación y Formación]</p>
-    </section>
-
-    <section id="perfil">
-      <h1>Perfil de Usuario</h1>
-      <p>[Contenido del perfil del usuario]</p>
-    </section>
-
-    <section id="legales">
-      <h1>Asuntos Legales</h1>
-      <p>[Contenido de asuntos legales]</p>
-    </section>
-
-    <section id="cultural">
-      <h1>Transformación Cultural</h1>
-      <p>[Contenido de transformación cultural]</p>
-    </section>
-
-    <section id="evaluacion">
-      <h1>Evaluación de Desempeño</h1>
-      <p>[Contenido de evaluación de desempeño]</p>
-    </section>
-
-    <section id="solicitudes">
-      <h1>Solicitudes de Talento Humano</h1>
-      <p>[Contenido de solicitudes de talento humano]</p>
+    <section class="cards">
+      <div class="card">
+        <h3>Compromiso con el Bienestar</h3>
+        <p>Nuestro equipo trabaja constantemente para garantizar tu bienestar físico y mental, ofreciéndote herramientas y espacios que te ayuden a alcanzar tu máximo potencial.</p>
+      </div>
+      <div class="card">
+        <h3>Oportunidades de Crecimiento</h3>
+        <p>Creemos en el desarrollo continuo. Por eso, promovemos espacios de aprendizaje y formación que fortalecen tus habilidades y conocimientos.</p>
+      </div>
+      <div class="card">
+        <h3>Un Ambiente de Trabajo Positivo</h3>
+        <p>Fomentamos la colaboración, el respeto y el trabajo en equipo para que te sientas valorado y motivado cada día.</p>
+      </div>
+      <div class="card">
+        <h3>Talento Humano LB</h3>
+        <p>Acompañamos tus procesos y celebramos tus logros. Tu satisfacción y bienestar son nuestra prioridad.</p>
+      </div>
+      <div class="card">
+        <h3>Lo que logramos juntos</h3>
+        <p>Tu dedicación impacta directamente en la educación y bienestar de nuestros estudiantes.</p>
+      </div>
+      <div class="card">
+        <h3>Trabajamos en equipo</h3>
+        <p>Juntos construimos un entorno de aprendizaje y trabajo cada vez más fuerte.</p>
+      </div>
     </section>
   </main>
+
+  <footer>
+    <p>© 2025 Liceo Boston - Talento Humano</p>
+    <p>
+      <a href="#">Contacto</a> |
+      <a href="#">Términos</a> |
+      <a href="#">Redes Sociales</a>
+    </p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
 
-  <footer>
-    <p>&copy; 2025 Liceo Boston - Talento Humano</p>
-  </footer>
-</body>
-</html>
