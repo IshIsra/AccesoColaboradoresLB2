@@ -5,93 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portal Talento Humano - Liceo Boston</title>
   <link rel="icon" href="https://www.liceoboston.edu.co/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: #333; background-color: #f5f5f5; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Roboto', sans-serif; line-height: 1.6; background-color: #f4f4f4; color: #333; }
 
     header {
       background-color: #003865;
       color: white;
       padding: 1rem 2rem;
       position: fixed;
-      width: 100%;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: top 0.3s ease-in-out;
     }
+
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
-    .logo { font-size: 1.5rem; font-weight: bold; }
-    .menu { display: flex; gap: 1rem; }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .menu {
+      display: flex;
+      gap: 1rem;
+      transition: all 0.3s ease;
+    }
+
     .menu a {
       color: white;
       text-decoration: none;
-      position: relative;
-      padding: 0.5rem;
-      transition: background-color 0.3s ease;
+      padding: 0.5rem 1rem;
+      transition: background-color 0.3s ease, color 0.3s;
     }
-    .menu a:hover {
+
+    .menu a:hover, .menu .active {
       background-color: #00589b;
+      color: white;
       border-radius: 5px;
     }
+
     .dropdown {
       position: relative;
     }
+
     .dropdown-content {
       display: none;
       position: absolute;
       background-color: white;
       color: #333;
-      top: 100%;
-      left: 0;
-      min-width: 200px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       z-index: 1001;
     }
+
     .dropdown-content a {
       display: block;
-      padding: 0.5rem 1rem;
+      padding: 1rem;
       color: #333;
       text-decoration: none;
-      transition: background-color 0.2s;
+      transition: background-color 0.3s;
     }
+
     .dropdown-content a:hover {
       background-color: #eee;
     }
-    .dropdown:hover .dropdown-content { display: block; }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
     .hamburger { display: none; cursor: pointer; }
     .hamburger i { font-size: 1.5rem; }
 
     @media (max-width: 768px) {
-      .menu { 
+      .menu {
         display: none;
         flex-direction: column;
         width: 100%;
         background-color: #003865;
       }
       .menu.show { display: flex; }
-      .dropdown-content { position: static; box-shadow: none; background-color: #004a8d; }
-      .dropdown-content a { color: white; }
+      .dropdown-content { background-color: #003865; color: white; }
       .hamburger { display: block; }
     }
 
-    main { padding-top: 6rem; max-width: 1200px; margin: auto; padding: 6rem 1rem 2rem; }
+    main {
+      padding-top: 6rem;
+      max-width: 1200px;
+      margin: auto;
+      padding: 6rem 1rem 2rem;
+    }
 
     .hero {
       background: url('https://www.liceoboston.edu.co/path/to/your-image.jpg') no-repeat center center/cover;
       color: white;
       padding: 5rem 2rem;
+      text-align: center;
       border-radius: 10px;
       margin-bottom: 2rem;
-      text-align: center;
       position: relative;
     }
 
@@ -121,21 +143,12 @@
       border-radius: 10px;
       padding: 1.5rem;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease, box-shadow 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s;
     }
 
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    .card h3 {
-      color: #003865;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      opacity: 0.9;
     }
 
     .subpage {
@@ -152,7 +165,6 @@
       color: white;
       padding: 2rem;
       text-align: center;
-      font-size: 0.85rem;
     }
 
     footer a {
@@ -165,34 +177,29 @@
       color: white;
     }
 
-    footer .logo {
+    footer .logo img {
+      width: 150px;
       margin-bottom: 1rem;
     }
 
     footer .legal-text {
-      font-style: italic;
+      font-size: 0.85rem;
       color: #999;
-      font-size: 0.75rem;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <header>
-    <nav role="navigation" aria-label="Menú principal">
+    <nav>
       <div class="logo">Talento Humano LB</div>
-      <div class="hamburger" onclick="toggleMenu()" aria-label="Menú móvil">
+      <div class="hamburger" onclick="toggleMenu()">
         <i class="fas fa-bars"></i>
       </div>
       <div class="menu" id="menu">
-        <a href="#inicio">Inicio</a>
+        <a href="#inicio" class="active">Inicio</a>
         <div class="dropdown">
-          <a href="#" aria-haspopup="true">Bienestar <i class="fas fa-caret-down"></i></a>
-          <div class="dropdown-content" aria-label="Submenú Bienestar">
+          <a href="#">Bienestar <i class="fas fa-caret-down"></i></a>
+          <div class="dropdown-content">
             <a href="#bienestar-fisico" onclick="openSubpage('bienestar-fisico')">Bienestar Físico</a>
             <a href="#bienestar-financiero" onclick="openSubpage('bienestar-financiero')">Bienestar Financiero</a>
             <a href="#bienestar-emocional" onclick="openSubpage('bienestar-emocional')">Bienestar Emocional</a>
@@ -200,71 +207,99 @@
             <a href="#bienestar-institucional" onclick="openSubpage('bienestar-institucional')">Bienestar Institucional</a>
           </div>
         </div>
-        <a href="#capacitacion" onclick="openSubpage('capacitacion')">Capacitación y Formación</a>
+        <a href="#capacitacion" onclick="openSubpage('capacitacion')">Capacitación</a>
         <a href="#perfil" onclick="openSubpage('perfil')">Perfil de Usuario</a>
-        <a href="#legales" onclick="openSubpage('legales')">Asuntos Legales</a>
-        <a href="#cultural" onclick="openSubpage('cultural')">Transformación Cultural</a>
-        <a href="#desempeno" onclick="openSubpage('desempeno')">Evaluación de Desempeño</a>
-        <a href="#solicitudes" onclick="openSubpage('solicitudes')">Solicitudes de Talento Humano</a>
+        <a href="#solicitudes" onclick="openSubpage('solicitudes')">Solicitudes</a>
       </div>
     </nav>
   </header>
 
-  <main id="inicio">
+  <main>
+    <!-- Sección Hero -->
     <section class="hero">
-      <h1>Talento Humano Liceo Boston</h1>
-      <p>Bienvenido al portal de Talento Humano</p>
-      <p>Estimado colaborador, este espacio está diseñado para ti. Aquí encontrarás información sobre beneficios, descuentos y convenios con diversas instituciones que promoverán tu bienestar y el de tu familia. También podrás inscribirte en cursos gratuitos certificados por aliados estratégicos reconocidos en el ámbito laboral y profesional. Además, tendrás acceso a la gestión de solicitudes al área de Talento Humano, como certificaciones y otros trámites importantes.</p>
+      <h1>Bienvenido al Portal de Talento Humano</h1>
+      <p>Explora los recursos exclusivos para colaboradores del Liceo Boston. Encuentra bienestar, capacitación y mucho más para tu desarrollo profesional y personal.</p>
     </section>
 
+    <!-- Sección de Beneficios -->
     <section class="cards">
       <div class="card">
-        <h3><i class="fas fa-heartbeat"></i> Compromiso con el Bienestar</h3>
-        <p>En el Liceo Boston, nos preocupamos por el bienestar de nuestros colaboradores, promoviendo iniciativas que favorecen su salud física y mental. Creemos que un equipo saludable y equilibrado es la base para un entorno laboral, productivo y armonioso.</p>
+        <h3>Bienestar Físico</h3>
+        <p>Accede a programas y actividades que fomentan la salud y el deporte dentro de nuestra comunidad educativa. Inscripciones abiertas a cursos y actividades físicas.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-chalkboard-teacher"></i> Capacitación y Formación</h3>
-        <p>Accede a programas de capacitación y formación que te ayudarán a desarrollarte profesionalmente. Ofrecemos cursos, talleres y eventos para que sigas creciendo en tu carrera y en tu vida personal.</p>
+        <h3>Capacitación</h3>
+        <p>Fortalece tu perfil profesional con los programas de formación continua. Conoce los cursos, talleres y webinars disponibles para ti.</p>
       </div>
       <div class="card">
-        <h3><i class="fas fa-gavel"></i> Asuntos Legales</h3>
-        <p>Brindamos información relevante sobre los derechos y obligaciones laborales, seguridad social y demás aspectos legales que deben conocer todos los empleados del Liceo Boston.</p>
+        <h3>Bienestar Emocional</h3>
+        <p>Ofrecemos herramientas para cuidar tu bienestar emocional. Talleres y recursos para gestionar el estrés y mejorar la salud mental.</p>
       </div>
     </section>
+
+    <!-- Subpáginas -->
+    <section id="bienestar-fisico" class="subpage">
+      <h2>Bienestar Físico</h2>
+      <p>El bienestar físico es esencial para una vida saludable. En esta sección, encontrarás actividades y programas orientados a mejorar tu salud física, como clases de yoga, deportes, y más.</p>
+      <ul>
+        <li>Clases de yoga y pilates.</li>
+        <li>Actividades deportivas y recreativas.</li>
+        <li>Programas de salud y nutrición.</li>
+      </ul>
+    </section>
+
+    <section id="bienestar-financiero" class="subpage">
+      <h2>Bienestar Financiero</h2>
+      <p>Te ofrecemos herramientas y asesorías para manejar tu economía personal. Programas de educación financiera, ahorro y planificación.</p>
+    </section>
+
+    <section id="bienestar-emocional" class="subpage">
+      <h2>Bienestar Emocional</h2>
+      <p>El cuidado de nuestra salud emocional es fundamental. Participa en nuestros programas de apoyo emocional, gestión del estrés, y bienestar psicológico.</p>
+    </section>
+
+    <section id="bienestar-social" class="subpage">
+      <h2>Bienestar Social</h2>
+      <p>Fomentamos el sentido de comunidad. Participa en actividades y eventos sociales que te permitan conectar con otros colaboradores y fortalecer tu red de apoyo.</p>
+    </section>
+
+    <section id="bienestar-institucional" class="subpage">
+      <h2>Bienestar Institucional</h2>
+      <p>Conoce las políticas y beneficios institucionales que brindan apoyo a los colaboradores del Liceo Boston. Desde el apoyo institucional hasta beneficios sociales.</p>
+    </section>
+
+    <section id="capacitacion" class="subpage">
+      <h2>Capacitación</h2>
+      <p>En el Liceo Boston promovemos el desarrollo profesional a través de múltiples cursos, talleres y actividades formativas. Consulta la oferta educativa disponible para ti.</p>
+      <ul>
+        <li>Formación continua en educación y pedagogía.</li>
+        <li>Desarrollo de competencias digitales.</li>
+        <li>Webinars sobre liderazgo y gestión educativa.</li>
+      </ul>
+    </section>
+
+    <section id="perfil" class="subpage">
+      <h2>Perfil de Usuario</h2>
+      <p>Accede a tu perfil, donde podrás gestionar tu información personal, visualizar tus cursos y solicitudes pendientes, y mucho más.</p>
+    </section>
+
+    <section id="solicitudes" class="subpage">
+      <h2>Solicitudes</h2>
+      <p>Realiza solicitudes para acceder a cursos, programas de bienestar y otros servicios ofrecidos por el área de Talento Humano. Gestiona tu participación de manera sencilla.</p>
+    </section>
+
   </main>
 
-  <div class="subpage bienestar-fisico" id="bienestar-fisico">
-    <h2>Bienestar Físico</h2>
-    <p>Información sobre iniciativas relacionadas con el bienestar físico, incluyendo convenios de salud, gimnasios, y actividades deportivas.</p>
-  </div>
-  <div class="subpage bienestar-financiero" id="bienestar-financiero">
-    <h2>Bienestar Financiero</h2>
-    <p>Beneficios financieros como asesorías, planes de ahorro, y apoyo económico para nuestros colaboradores.</p>
-  </div>
-  <div class="subpage bienestar-emocional" id="bienestar-emocional">
-    <h2>Bienestar Emocional</h2>
-    <p>Recursos y programas de apoyo psicológico, terapias, y actividades para cuidar el bienestar emocional de todos.</p>
-  </div>
-
+  <!-- Footer -->
   <footer>
     <div class="logo">
       <img src="https://www.liceoboston.edu.co/path/to/logo.png" alt="Logo Liceo Boston">
     </div>
     <p>© 2025 Liceo Boston - Talento Humano</p>
     <p class="legal-text">
-      El Liceo Boston, fundado en 1958, es una institución educativa privada ubicada en Bogotá, D.C., Colombia. 
+      El Liceo Boston, fundado en 1958, es una institución educativa privada ubicada en Bogotá, D.C., Colombia.
       <br>
       <a href="https://www.liceoboston.edu.co/">Visita nuestra página oficial</a>
-    </p>
-    <p>
-      <a href="#">Contacto</a> |
-      <a href="#">Términos</a> |
-      <a href="#">Política de Privacidad</a>
-    </p>
-    <p>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
     </p>
   </footer>
 
