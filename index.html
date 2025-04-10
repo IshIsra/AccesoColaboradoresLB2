@@ -3,257 +3,333 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal Talento Humano - Liceo Boston</title>
-  <link rel="icon" href="https://www.liceoboston.edu.co/favicon.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="description" content="Portal Talento Humano Liceo Boston - Portal para el bienestar y desarrollo de los colaboradores.">
+  <meta name="keywords" content="Liceo Boston, Talento Humano, Bienestar, Capacitación, Colaboradores, Educación">
+  <meta property="og:image" content="URL_de_imagen">
+  <meta property="og:title" content="Portal Talento Humano Liceo Boston">
+  <title>Portal Talento Humano Liceo Boston</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset general */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roboto', sans-serif; background-color: #f8f8f8; color: #333; }
+    /* Reset de márgenes y padding */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    /* Header */
+    /* Fuentes y colores */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Encabezado */
     header {
-      background-color: #003865;
+      background-color: #003366;
       color: white;
-      padding: 1.5rem 2rem;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    /* Menú de navegación */
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      background-color: #00509E;
+      padding: 10px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    .logo {
-      font-size: 2rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
-
-    .menu {
-      display: flex;
-      gap: 1.5rem;
-      font-size: 1rem;
-    }
-
-    .menu a {
+    nav a {
       color: white;
+      padding: 14px 20px;
       text-decoration: none;
-      padding: 0.7rem 1rem;
+      font-size: 18px;
+      margin: 0 15px;
+      display: inline-block;
       transition: background-color 0.3s ease, color 0.3s ease;
-      border-radius: 5px;
     }
 
-    .menu a:hover, .menu .active {
-      background-color: #00589b;
-      color: white;
+    nav a:hover {
+      background-color: #FFD700;
+      color: #003366;
     }
 
-    /* Dropdown */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
+    /* Sección principal */
+    .main-content {
+      padding: 40px;
       background-color: white;
-      color: #333;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      max-width: 1200px;
       border-radius: 8px;
-      width: 200px;
+      margin-top: 40px;
     }
 
-    .dropdown-content a {
-      padding: 1rem;
-      color: #333;
+    .main-content h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .main-content p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      background-color: #00509E;
+      color: white;
+      padding: 12px 25px;
       text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+      display: inline-block;
+      margin-top: 20px;
       transition: background-color 0.3s ease;
     }
 
-    .dropdown-content a:hover {
-      background-color: #eee;
+    .cta-button:hover {
+      background-color: #FFD700;
     }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    /* Menu en dispositivos móviles */
-    .hamburger { display: none; cursor: pointer; font-size: 1.5rem; }
-
-    @media (max-width: 768px) {
-      .menu { display: none; flex-direction: column; width: 100%; background-color: #003865; margin-top: 1rem; }
-      .menu.show { display: flex; }
-      .hamburger { display: block; }
-    }
-
-    /* Main content */
-    main {
-      padding-top: 8rem;
-      max-width: 1200px;
-      margin: auto;
-      padding: 3rem 1rem;
-    }
-
-    .hero {
-      background-color: #003865;
-      color: white;
-      padding: 6rem 2rem;
-      text-align: center;
-      border-radius: 10px;
-      margin-bottom: 3rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .hero h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
-
-    /* Sección de Cards (Beneficios, Capacitación, etc.) */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .card {
-      background-color: white;
-      border-radius: 10px;
-      padding: 2rem;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Barra de búsqueda */
+    .search-bar {
+      max-width: 500px;
+      margin: 30px auto;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    .search-bar input {
+      width: 80%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
     }
 
-    .card h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+    .search-bar button {
+      padding: 12px 20px;
+      background-color: #00509E;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
     }
 
-    .card p {
-      font-size: 1rem;
-      line-height: 1.6;
+    .search-bar button:hover {
+      background-color: #FFD700;
+    }
+
+    /* Noticias o actualizaciones */
+    .news {
+      margin-top: 40px;
+    }
+
+    .news h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .news ul {
+      list-style-type: none;
+    }
+
+    .news li {
+      margin-bottom: 15px;
+    }
+
+    .news a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #00509E;
+      transition: color 0.3s ease;
+    }
+
+    .news a:hover {
+      color: #FFD700;
+    }
+
+    /* Testimonios */
+    .testimonials {
+      margin: 40px 0;
+      background-color: #f1f1f1;
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    .testimonials h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-item {
+      margin-bottom: 20px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .testimonial-item p {
+      font-size: 16px;
+      font-style: italic;
+    }
+
+    .testimonial-item h4 {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
     }
 
     /* Footer */
     footer {
-      background-color: #003865;
+      background-color: #003366;
       color: white;
-      padding: 3rem 2rem;
+      padding: 20px;
       text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer .legal-text {
-      font-size: 0.85rem;
-      color: #ccc;
-      margin-top: 1rem;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
     }
 
     footer a {
-      color: #ccc;
+      color: white;
       text-decoration: none;
-      margin: 0 0.5rem;
+      margin: 0 10px;
+      font-size: 16px;
     }
 
     footer a:hover {
-      color: white;
+      text-decoration: underline;
     }
 
+    /* Redes sociales */
+    .social-media {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-media a {
+      margin: 0 15px;
+      font-size: 30px;
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    .social-media a:hover {
+      color: #FFD700;
+    }
+
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+      nav a {
+        padding: 12px;
+        font-size: 16px;
+      }
+
+      .main-content {
+        padding: 20px;
+      }
+
+      .search-bar {
+        width: 90%;
+      }
+
+      .cta-button {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+
+      footer a {
+        font-size: 14px;
+      }
+
+      .social-media a {
+        font-size: 24px;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <nav>
-      <div class="logo">Talento Humano LB</div>
-      <div class="hamburger" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-      </div>
-      <div class="menu" id="menu">
-        <a href="#inicio" class="active">Inicio</a>
-        <div class="dropdown">
-          <a href="#">Bienestar <i class="fas fa-caret-down"></i></a>
-          <div class="dropdown-content">
-            <a href="bienestar_fisico.html">Bienestar Físico</a>
-            <a href="bienestar_financiero.html">Bienestar Financiero</a>
-            <a href="bienestar_emocional.html">Bienestar Emocional</a>
-            <a href="bienestar_social.html">Bienestar Social</a>
-            <a href="bienestar_institucional.html">Bienestar Institucional</a>
-          </div>
-        </div>
-        <a href="capacitacion.html">Capacitación</a>
-        <a href="perfil.html">Perfil de Usuario</a>
-        <a href="solicitudes.html">Solicitudes</a>
-      </div>
-    </nav>
+    <h1>Portal Talento Humano Liceo Boston</h1>
   </header>
 
-  <main>
-    <!-- Sección Hero -->
-    <section class="hero" id="inicio">
-      <h1>Bienvenido al Portal de Talento Humano</h1>
-      <p>Explora los recursos exclusivos para colaboradores del Liceo Boston. Encuentra bienestar, capacitación y mucho más para tu desarrollo profesional y personal.</p>
-    </section>
+  <!-- Menu de navegación -->
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="bienestar.html">Bienestar</a>
+    <a href="formacion.html">Formación</a>
+    <a href="vacantes.html">Vacantes</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
 
-    <!-- Sección de Beneficios -->
-    <section class="cards">
-      <div class="card">
-        <h3>Bienestar Físico</h3>
-        <p>Accede a programas y actividades que fomentan la salud y el deporte dentro de nuestra comunidad educativa. Inscripciones abiertas a cursos y actividades físicas.</p>
-      </div>
-      <div class="card">
-        <h3>Capacitación</h3>
-        <p>Fortalece tu perfil profesional con los programas de formación continua. Conoce los cursos, talleres y webinars disponibles para ti.</p>
-      </div>
-      <div class="card">
-        <h3>Bienestar Emocional</h3>
-        <p>Ofrecemos herramientas para cuidar tu bienestar emocional. Talleres y recursos para gestionar el estrés y mejorar la salud mental.</p>
-      </div>
-    </section>
-  </main>
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <h2>Bienvenido al Portal de Talento Humano</h2>
+    <p>Este portal ha sido creado para ofrecerte acceso a toda la información relevante sobre tu bienestar, desarrollo profesional y las oportunidades de capacitación en el Liceo Boston.</p>
+
+    <!-- Llamado a la acción -->
+    <a href="formacion.html" class="cta-button">Ver Programas de Formación</a>
+  </div>
+
+  <!-- Barra de búsqueda -->
+  <div class="search-bar">
+    <input type="text" placeholder="Buscar programas, vacantes y más...">
+    <button type="button">Buscar</button>
+  </div>
+
+  <!-- Noticias -->
+  <div class="news">
+    <h3>Últimas Noticias</h3>
+    <ul>
+      <li><a href="#">Nuevo programa de formación en gestión de proyectos.</a></li>
+      <li><a href="#">Abiertas las inscripciones para el evento de bienestar laboral.</a></li>
+      <li><a href="#">Recuerda la nueva política de trabajo remoto para el 2025.</a></li>
+    </ul>
+  </div>
+
+  <!-- Testimonios -->
+  <div class="testimonials">
+    <h3>Testimonios de nuestros colaboradores</h3>
+    <div class="testimonial-item">
+      <p>"Gracias al portal, pude acceder a varios cursos de formación que han mejorado mis habilidades profesionales."</p>
+      <h4>Juan Pérez - Docente</h4>
+    </div>
+    <div class="testimonial-item">
+      <p>"Las iniciativas de bienestar realmente me han ayudado a balancear mejor mi vida laboral y personal."</p>
+      <h4>Ana María Rodríguez - Administrativo</h4>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
-    <div class="logo">
-      <p>Liceo Boston</p>
+    <p>© 2025 Liceo Boston - Talento Humano | <a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+    <div class="social-media">
+      <a href="https://facebook.com/liceoboston" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com/liceoboston" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com/liceoboston" target="_blank"><i class="fab fa-instagram"></i></a>
     </div>
-    <p>© 2025 Liceo Boston - Talento Humano</p>
-    <p class="legal-text">
-      El Liceo Boston, fundado en 1958, es una institución educativa privada ubicada en Bogotá, D.C., Colombia.
-      <br>
-      <a href="https://www.liceoboston.edu.co/">Visita nuestra página oficial</a>
-    </p>
   </footer>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('menu').classList.toggle('show');
-    }
-  </script>
+  <!-- Scripts (para iconos de redes sociales) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
