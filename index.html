@@ -83,15 +83,26 @@
     }
 
     main { padding-top: 6rem; max-width: 1200px; margin: auto; padding: 6rem 1rem 2rem; }
+
     section.hero {
-      background: linear-gradient(to right, #00589b, #0073e6);
+      background-image: url('https://www.liceoboston.edu.co/path-to-your-image.jpg');
+      background-size: cover;
+      background-position: center;
       color: white;
-      padding: 3rem 2rem;
+      padding: 6rem 2rem;
+      text-align: center;
       border-radius: 10px;
       margin-bottom: 2rem;
-      text-align: center;
-      animation: fadeIn 1s ease-in;
+      opacity: 0.8;
     }
+    section.hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    section.hero p {
+      font-size: 1.2rem;
+    }
+    
     section.cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -129,6 +140,7 @@
       color: white;
       padding: 2rem;
       text-align: center;
+      font-size: 0.9rem;
     }
     footer a {
       color: #ccc;
@@ -139,9 +151,10 @@
       color: white;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    footer .info {
+      font-style: italic;
+      opacity: 0.6;
+      font-size: 0.8rem;
     }
   </style>
 </head>
@@ -176,63 +189,57 @@
 
   <main id="inicio">
     <section class="hero">
-      <h1>Bienvenido al portal de Talento Humano</h1>
-      <p>Nos alegra tenerte aquí. Este es tu espacio para acceder a información valiosa sobre tu bienestar, desarrollo profesional y asuntos laborales. Encuentra información sobre nuestros convenios, cursos gratuitos y realiza tus solicitudes de manera rápida y sencilla.</p>
+      <h1>Talento Humano Liceo Boston</h1>
+      <p>Bienvenido al portal de Talento Humano</p>
+      <p>Estimado colaborador, este espacio está diseñado para ti. Aquí encontrarás información sobre beneficios, descuentos y convenios con diversas instituciones que promoverán tu bienestar y el de tu familia. También podrás inscribirte en cursos gratuitos certificados por aliados estratégicos reconocidos en el ámbito laboral y profesional. Además, tendrás acceso a la gestión de solicitudes al área de Talento Humano, como certificaciones y otros trámites importantes.</p>
     </section>
 
     <section class="cards">
       <div class="card">
         <h3><i class="fas fa-heartbeat"></i> Compromiso con el Bienestar</h3>
-        <p>Nuestro equipo trabaja constantemente para garantizar tu bienestar físico y mental, ofreciéndote herramientas y espacios que te ayuden a alcanzar tu máximo potencial.</p>
+        <p>En el Liceo Boston, nos preocupamos por el bienestar de nuestros colaboradores, promoviendo iniciativas que favorecen su salud física y mental. Creemos que un equipo saludable y equilibrado es la base para un entorno laboral, productivo y armonioso.</p>
       </div>
       <div class="card">
         <h3><i class="fas fa-chart-line"></i> Oportunidades de Crecimiento</h3>
-        <p>Creemos en el desarrollo continuo. Por eso, promovemos espacios de aprendizaje y formación que fortalecen tus habilidades y conocimientos.</p>
+        <p>Fomentamos el desarrollo profesional y personal de nuestros colaboradores a través de espacios de aprendizaje y formación. Valoramos el talento interno y buscamos que cada persona tenga la oportunidad de fortalecer sus habilidades y avanzar en su carrera.</p>
       </div>
       <div class="card">
         <h3><i class="fas fa-handshake"></i> Un Ambiente de Trabajo Positivo</h3>
-        <p>Fomentamos la colaboración, el respeto y el trabajo en equipo para que te sientas valorado y motivado cada día.</p>
+        <p>La colaboración y el respeto son pilares fundamentales en nuestra institución. Trabajamos constantemente para mantener un ambiente laboral donde cada colaborador se sienta escuchado, valorado y motivado a dar lo mejor de sí cada día.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Talento Humano LB</h2>
+      <p>En el Área de Talento Humano, trabajamos continuamente para mejorar la experiencia de nuestros colaboradores. Cada iniciativa, alianza y mejora implementada es un paso más hacia un entorno laboral más positivo, motivador y eficiente. Aquí destacamos los avances y logros alcanzados, reflejando nuestro compromiso con el bienestar, el desarrollo profesional y la satisfacción de nuestro equipo. ¡Cada logro es también tuyo!</p>
+    </section>
+
+    <section class="cards">
+      <div class="card">
+        <a href="https://www.liceoboston.edu.co/">
+          <img src="https://www.liceoboston.edu.co/path-to-image.jpg" alt="Lo que logramos juntos" style="width: 100%; height: auto; border-radius: 10px;">
+          <p>Lo que logramos juntos: En el Liceo Boston, trabajamos juntos con un propósito claro: formar excelentes estudiantes.</p>
+        </a>
       </div>
       <div class="card">
-        <h3><i class="fas fa-users"></i> Talento Humano LB</h3>
-        <p>Acompañamos tus procesos y celebramos tus logros. Tu satisfacción y bienestar son nuestra prioridad.</p>
-      </div>
-      <div class="card">
-        <h3><i class="fas fa-trophy"></i> Lo que logramos juntos</h3>
-        <p>Tu dedicación impacta directamente en la educación y bienestar de nuestros estudiantes.</p>
-      </div>
-      <div class="card">
-        <h3><i class="fas fa-people-carry"></i> Trabajamos en equipo</h3>
-        <p>Juntos construimos un entorno de aprendizaje y trabajo cada vez más fuerte.</p>
+        <a href="https://www.liceoboston.edu.co/">
+          <img src="https://www.liceoboston.edu.co/path-to-image.jpg" alt="Trabajamos en equipo" style="width: 100%; height: auto; border-radius: 10px;">
+          <p>Trabajamos en equipo: La excelencia de nuestros estudiantes es el resultado de un equipo comprometido y unido.</p>
+        </a>
       </div>
     </section>
   </main>
 
-  <main id="subpaginas">
-    <section id="bienestar-fisico" class="subpage"><h2>Bienestar Físico</h2></section>
-    <section id="bienestar-financiero" class="subpage"><h2>Bienestar Financiero</h2></section>
-    <section id="bienestar-emocional" class="subpage"><h2>Bienestar Emocional</h2></section>
-    <section id="bienestar-social" class="subpage"><h2>Bienestar Social</h2></section>
-    <section id="bienestar-institucional" class="subpage"><h2>Bienestar Institucional</h2></section>
-    <section id="capacitacion" class="subpage"><h2>Capacitación y Formación</h2></section>
-    <section id="perfil" class="subpage"><h2>Perfil de Usuario</h2></section>
-    <section id="legales" class="subpage"><h2>Asuntos Legales</h2></section>
-    <section id="cultural" class="subpage"><h2>Transformación Cultural</h2></section>
-    <section id="desempeno" class="subpage"><h2>Evaluación de Desempeño</h2></section>
-    <section id="solicitudes" class="subpage"><h2>Solicitudes de Talento Humano</h2></section>
-  </main>
-
   <footer>
+    <div class="logo">Talento Humano LB</div>
     <p>© 2025 Liceo Boston - Talento Humano</p>
     <p>
       <a href="#">Contacto</a> |
       <a href="#">Términos</a> |
       <a href="#">Política de Privacidad</a>
     </p>
-    <p>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
+    <p class="info">
+      El Liceo Boston, fundado en 1958, es una institución educativa privada ubicada en Bogotá, D.C., Colombia...
     </p>
   </footer>
 
@@ -253,3 +260,4 @@
   </script>
 </body>
 </html>
+
