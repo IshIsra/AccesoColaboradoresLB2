@@ -116,6 +116,13 @@
       opacity: 0.9;
     }
 
+    .subpage {
+      display: none;
+    }
+    .subpage.active {
+      display: block;
+    }
+
     footer {
       margin-top: 3rem;
       background-color: #003865;
@@ -150,19 +157,19 @@
         <div class="dropdown">
           <a href="#" aria-haspopup="true">Bienestar <i class="fas fa-caret-down"></i></a>
           <div class="dropdown-content" aria-label="Submenú Bienestar">
-            <a href="#">Bienestar Físico</a>
-            <a href="#">Bienestar Financiero</a>
-            <a href="#">Bienestar Emocional</a>
-            <a href="#">Bienestar Social</a>
-            <a href="#">Bienestar Institucional</a>
+            <a href="#bienestar-fisico" onclick="openSubpage('bienestar-fisico')">Bienestar Físico</a>
+            <a href="#bienestar-financiero" onclick="openSubpage('bienestar-financiero')">Bienestar Financiero</a>
+            <a href="#bienestar-emocional" onclick="openSubpage('bienestar-emocional')">Bienestar Emocional</a>
+            <a href="#bienestar-social" onclick="openSubpage('bienestar-social')">Bienestar Social</a>
+            <a href="#bienestar-institucional" onclick="openSubpage('bienestar-institucional')">Bienestar Institucional</a>
           </div>
         </div>
-        <a href="#">Capacitación y Formación</a>
-        <a href="#">Perfil de Usuario</a>
-        <a href="#">Asuntos Legales</a>
-        <a href="#">Transformación Cultural</a>
-        <a href="#">Evaluación de Desempeño</a>
-        <a href="#">Solicitudes de Talento Humano</a>
+        <a href="#capacitacion" onclick="openSubpage('capacitacion')">Capacitación y Formación</a>
+        <a href="#perfil" onclick="openSubpage('perfil')">Perfil de Usuario</a>
+        <a href="#legales" onclick="openSubpage('legales')">Asuntos Legales</a>
+        <a href="#cultural" onclick="openSubpage('cultural')">Transformación Cultural</a>
+        <a href="#desempeno" onclick="openSubpage('desempeno')">Evaluación de Desempeño</a>
+        <a href="#solicitudes" onclick="openSubpage('solicitudes')">Solicitudes de Talento Humano</a>
       </div>
     </nav>
   </header>
@@ -201,6 +208,20 @@
     </section>
   </main>
 
+  <main id="subpaginas">
+    <section id="bienestar-fisico" class="subpage"><h2>Bienestar Físico</h2></section>
+    <section id="bienestar-financiero" class="subpage"><h2>Bienestar Financiero</h2></section>
+    <section id="bienestar-emocional" class="subpage"><h2>Bienestar Emocional</h2></section>
+    <section id="bienestar-social" class="subpage"><h2>Bienestar Social</h2></section>
+    <section id="bienestar-institucional" class="subpage"><h2>Bienestar Institucional</h2></section>
+    <section id="capacitacion" class="subpage"><h2>Capacitación y Formación</h2></section>
+    <section id="perfil" class="subpage"><h2>Perfil de Usuario</h2></section>
+    <section id="legales" class="subpage"><h2>Asuntos Legales</h2></section>
+    <section id="cultural" class="subpage"><h2>Transformación Cultural</h2></section>
+    <section id="desempeno" class="subpage"><h2>Evaluación de Desempeño</h2></section>
+    <section id="solicitudes" class="subpage"><h2>Solicitudes de Talento Humano</h2></section>
+  </main>
+
   <footer>
     <p>© 2025 Liceo Boston - Talento Humano</p>
     <p>
@@ -219,6 +240,15 @@
     function toggleMenu() {
       const menu = document.getElementById('menu');
       menu.classList.toggle('show');
+    }
+
+    function openSubpage(id) {
+      document.querySelectorAll('.subpage').forEach(el => el.classList.remove('active'));
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.add('active');
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   </script>
 </body>
