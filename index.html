@@ -3,110 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Acceso Colaboradores - Liceo Boston</title>
+  <title>Portal Talento Humano - Liceo Boston</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset básico */
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
     }
-
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f7f7f7;
+      background-color: #000;
+      color: #fff;
     }
-
-    /* Header */
-    .encabezado {
-      background-color: #003865;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .logo {
-      height: 60px;
-      margin-bottom: 10px;
-    }
-
-    /* Hero section */
-    .hero {
-      background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?fit=crop&w=1400&q=80');
-      background-size: cover;
-      background-position: center;
-      height: 300px;
-      position: relative;
-    }
-
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.5);
-      height: 100%;
-      color: white;
+    header {
+      background-color: #000;
+      padding: 1rem 2rem;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 30px;
+      justify-content: space-between;
+      border-bottom: 2px solid #1e293b;
     }
-
-    /* Contenido */
-    .contenido {
-      padding: 40px 20px;
-      text-align: center;
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
     }
-
-    .boton {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 24px;
-      background-color: #005aa7;
-      color: white;
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: #fff;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s;
+      font-weight: bold;
     }
-
-    .boton:hover {
-      background-color: #003865;
+    nav a:hover {
+      color: #3b82f6;
     }
-
-    /* Footer */
-    footer {
-      background-color: #003865;
-      color: white;
-      text-align: center;
-      padding: 20px;
+    main {
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #3b82f6;
+      margin-bottom: 1rem;
+    }
+    section {
+      margin-bottom: 2rem;
     }
   </style>
-  <link rel="icon" href="https://www.liceoboston.edu.co/images/logo_boston.png" type="image/png" />
 </head>
 <body>
-  <header class="encabezado">
-    <img src="https://www.liceoboston.edu.co/images/logo_boston.png" alt="Liceo Boston Logo" class="logo" />
-    <h1>Acceso para colaboradores</h1>
+  <header>
+    <div class="logo">Liceo Boston - TH</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#bienestar">Bienestar</a>
+      <a href="#capacitacion">Capacitación y Formación</a>
+      <a href="#perfil">Perfil de Usuario</a>
+      <a href="#legales">Asuntos Legales</a>
+      <a href="#cultural">Transformación Cultural</a>
+      <a href="#evaluacion">Evaluación de Desempeño</a>
+      <a href="#solicitudes">Solicitudes de Talento Humano</a>
+    </nav>
   </header>
-
   <main>
-    <section class="hero">
-      <div class="overlay">
-        <h2>Bienvenidos al acceso exclusivo</h2>
-        <p>Portal interno para personal del Liceo Boston</p>
-      </div>
+    <section id="inicio">
+      <h1>Talento Humano Liceo Boston</h1>
+      <p>[Contenido principal de bienvenida irá aquí]</p>
     </section>
 
-    <section class="contenido">
-      <h3>Accesos rápidos</h3>
-      <div class="botones">
-        <a href="https://drive.google.com" target="_blank" class="boton">Google Drive</a>
-        <a href="https://mail.google.com" target="_blank" class="boton">Correo Institucional</a>
-        <a href="https://sites.google.com/liceoboston.edu.co/liceobostonth" target="_blank" class="boton">Sitio Interno</a>
-      </div>
+    <section id="bienestar">
+      <h1>Bienestar</h1>
+      <p>[Contenido de Bienestar]</p>
+    </section>
+
+    <section id="capacitacion">
+      <h1>Capacitación y Formación</h1>
+      <p>[Contenido de Capacitación y Formación]</p>
+    </section>
+
+    <section id="perfil">
+      <h1>Perfil de Usuario</h1>
+      <p>[Contenido del perfil del usuario]</p>
+    </section>
+
+    <section id="legales">
+      <h1>Asuntos Legales</h1>
+      <p>[Contenido de asuntos legales]</p>
+    </section>
+
+    <section id="cultural">
+      <h1>Transformación Cultural</h1>
+      <p>[Contenido de transformación cultural]</p>
+    </section>
+
+    <section id="evaluacion">
+      <h1>Evaluación de Desempeño</h1>
+      <p>[Contenido de evaluación de desempeño]</p>
+    </section>
+
+    <section id="solicitudes">
+      <h1>Solicitudes de Talento Humano</h1>
+      <p>[Contenido de solicitudes de talento humano]</p>
     </section>
   </main>
+</body>
+</html>
 
   <footer>
     <p>&copy; 2025 Liceo Boston - Talento Humano</p>
